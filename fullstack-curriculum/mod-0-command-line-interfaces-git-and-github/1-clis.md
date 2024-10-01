@@ -112,6 +112,10 @@ Use the <kbd>Tab</kbd> key to autocomplete commands and filenames! Just start ty
 
 For this particular task it might be faster to use a GUI file manager like Finder, however there are many tasks where a CLI like the Terminal can outpace a GUI like Finder. In addition, there are some things that Finder simply can't do, like execute files with code.
 
+Some examples of tasks that can only be achieved with CLI would be:
+- running `.js` files with node, etc.
+- `git` commands
+- editing files natively in the terminal using `vim` or even `nano`!
 </details>
 
 

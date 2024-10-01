@@ -89,6 +89,10 @@ Developers can revert to previous versions of their project if they need to (for
 
 </details>
 
+{% hint style="info" %}
+Having a git repo inside an already existing repo makes it so that the enclosing repository won't include the directory of the "child" repo. Making use of **GitHub Submodules** seems to be one of the ways to work around this...*
+{% endhint %}
+
 ### Git Workflow
 
 Using git in a project involves moving our code between three phases:

@@ -17,8 +17,15 @@ layout:
     visible: true
 ---
 
-# Welcome
+# Welcome to **marcyannotes**!
 
-Welcome to the Marcy Lab School docs! Here, you can find information about everything we do here at Marcy, from our curriculum, to the student handbook, and much more!
+This is a clone of the [handbook](https://marcylabschool.gitbook.io/marcy-lab-school-docs) with added notes and annotations! Feel free to put in annotations with [gitbook](https://raffycastlee.gitbook.io/marcyannotes)!
 
-To get started, head over to the [Guidelines & Policies](guidelines-and-policies/) or dive straight into the [Fullstack Curriculum](fullstack-curriculum/)!
+[invite link to suggest edits](https://app.gitbook.com/invite/44azXdbX7zdDFOJp855x/uBwjXgRlUKSTvit1nnDy)
+
+-raffy c
+
+
+---
+
+last update: [[TUE] 01 OCT 2024](codechallenge-curriculum/unit-0/20241001.md)
