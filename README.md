@@ -19,12 +19,7 @@ layout:
 
 # Welcome to **marcyannotes**!
 
-This is a clone of the [handbook](https://marcylabschool.gitbook.io/marcy-lab-school-docs) with added notes and annotations! Feel free to put in annotations with [gitbook](https://raffycastlee.gitbook.io/marcyannotes)!
-
-[invite link to suggest edits](https://app.gitbook.com/invite/44azXdbX7zdDFOJp855x/uBwjXgRlUKSTvit1nnDy)
-
--raffy c
-
+This is a fork of the handbook with added annotations by me (Raffy)!
 
 ---
 
