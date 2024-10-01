@@ -28,4 +28,4 @@ This is a clone of the [handbook](https://marcylabschool.gitbook.io/marcy-lab-sc
 
 ---
 
-last update: [[TUE] 01 OCT 2024](codechallenge-curriculum/unit-0/20241001.md)
+last update: [[TUE] 01 OCT 2024 Code Challenge Session with Carmen Salas](codechallenge-curriculum/unit-0/20241001.md)
