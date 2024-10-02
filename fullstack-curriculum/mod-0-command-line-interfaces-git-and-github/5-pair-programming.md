@@ -22,7 +22,9 @@ git branch -a
 {% hint style="info" %}
    Notice that there are currently THREE "branches":
    > * The Branch You Just Created
+
    > main
+
    > remotes/origin/main
 {% endhint %}
 
