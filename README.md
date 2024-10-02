@@ -23,4 +23,4 @@ This is a fork of the handbook with added annotations by me (Raffy)!
 
 ---
 
-last update: [[TUE] 01 OCT 2024 Code Challenge Session with Carmen Salas](codechallenge-curriculum/unit-0/20241001.md)
+last update: [Pair Programming HW](fullstack-curriculum/mod-0-command-line-interfaces-git-and-github/5-pair-programming.md)
