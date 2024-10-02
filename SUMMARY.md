@@ -29,6 +29,7 @@
     * [Git & GitHub](fullstack-curriculum/mod-0-command-line-interfaces-git-and-github/2-git-github.md)
     * [Git Pulling & Merging](fullstack-curriculum/mod-0-command-line-interfaces-git-and-github/3-git-pulling-merging.md)
     * [Git Branching & PRs](fullstack-curriculum/mod-0-command-line-interfaces-git-and-github/4-git-branching.md)
+    * [Pair Programming HW](fullstack-curriculum/mod-0-command-line-interfaces-git-and-github/5-pair-programming.md)
   * [Mod 1 - JavaScriptFundamentals](fullstack-curriculum/mod-1-javascript-fundamentals/README.md)
     * [Mod 1 Overview](fullstack-curriculum/mod-1-javascript-fundamentals/Overview.md)
     * [Intro to Programming](fullstack-curriculum/mod-1-javascript-fundamentals/0-intro-to-programming.md)
