@@ -104,6 +104,7 @@
    - [Unit 0 - Intro to Code Challenges](codechallenge-curriculum/unit-0/README.md)
       - [[MON] 30 SEP 2024](codechallenge-curriculum/unit-0/20240930.md)
       - [[TUE] 01 OCT 2024](codechallenge-curriculum/unit-0/20241001.md)
+      - [[WED] 02 OCT 2024](codechallenge-curriculum/unit-0/20241002.md)
    - [Unit 1](codechallenge-curriculum/unit-1/README.md)
    - [Unit 2](codechallenge-curriculum/unit-2/README.md)
    - [Unit 3](codechallenge-curriculum/unit-3/README.md)

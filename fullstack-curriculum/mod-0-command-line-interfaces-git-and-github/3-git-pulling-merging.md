@@ -105,6 +105,16 @@ The developer who pushed second will be given this message:
 
 ![The remote repository has changes that are not in the local repository. Git pull to download those changes](./img/failed-to-push.png)
 
+In case you got an error about configuring `pull.rebase`, run the following in your CLI:
+
+```bash
+git config --global pull.rebase false
+```
+
+{% hint style="info" %}
+   This makes it so that all conflicts will have to be merged (and reviewed) instead of rebased. The `--global` flag also sets this config on all other git repos you will/have on your machine!
+{% endhint %}
+
 ### Why Can't I Push?
 
 You are only allowed to push to the remote repository if your local repository has the exact same commit history as the remote repository.

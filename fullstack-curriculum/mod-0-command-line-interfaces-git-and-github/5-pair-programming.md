@@ -21,11 +21,11 @@ git branch -a
 ```
 {% hint style="info" %}
    Notice that there are currently THREE "branches":
-   > * The Branch You Just Created
+   > - \* The Branch You Just Created
 
-   > main
+   > - main
 
-   > remotes/origin/main
+   > - remotes/origin/main
 {% endhint %}
 
 - The `*` denotes the branch you are currently on. In this case, since we used `git checkout -b BranchName` earlier, it created and set us up on that branch.
