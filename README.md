@@ -20,6 +20,7 @@ layout:
 # Welcome to **marcyannotes**!
 
 This is a fork of the handbook with added annotations by me (Raffy)!
+[gitbook](https://raffycastlee.gitbook.io/marcyannotes)
 
 ---
 

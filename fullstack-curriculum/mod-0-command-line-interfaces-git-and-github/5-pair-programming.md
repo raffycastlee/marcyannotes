@@ -1,14 +1,12 @@
-# Bonus
+# Pair Programming: BONUS
 
 ## Setting up Branches
 Assuming you are already on the directory (or folder) of your repo, this is how you set up a new local branch.
 
-{% hint style="info" %}
-   Like with commits, new branches are first created locally, then uploaded or pushed to remote later in the process.
-{% endhint %}
+Like with commits, new branches are first created locally, then uploaded or pushed to remote later in the process.
 
 In the terminal:
-```
+```bash
 git checkout -b branchName
 ```
 {% hint style="info" %}
@@ -16,17 +14,15 @@ git checkout -b branchName
 {% endhint %}
 
 To check that you have created a new branch and are currently set to it:
-```
+```bash
 git branch -a
 ```
-{% hint style="info" %}
-   Notice that there are currently THREE "branches":
-   > - \* The Branch You Just Created
-
-   > - main
-
-   > - remotes/origin/main
-{% endhint %}
+You should see the following output:
+```bash
+* branchName
+  main
+  remotes/origin/main
+```
 
 - The `*` denotes the branch you are currently on. In this case, since we used `git checkout -b BranchName` earlier, it created and set us up on that branch.
 
@@ -46,7 +42,7 @@ But before we start pushing our code, we have to make sure that the `branch` tha
 
 Our local branch has to match with a remote branch before we can push, and in order to do that, we do the following command:
 
-```
+```bash
 git push --set-upstream origin BranchName
 ```
 
@@ -54,7 +50,7 @@ This command enables the first time you `push`. All other `pushes` after this ca
 
 ## Pull Requests!!!
 
-It doesn't end at doing `push` into your new branch. Remember that `branches` exist for the purpose of being merged back into `main`, and mostly acts as a `staging` are for any new features or changes that you want to implement. This is especially helpful when working in teams, so you know exactly who was working on what, and makes `merge`s easier!
+It doesn't end at doing `push` into your new branch. Remember that `branches` exist for the purpose of being merged back into `main`, and mostly acts as a `staging` area for any new features or changes that you want to implement. This is especially helpful when working in teams, so you know exactly who was working on what, and makes `merge`s easier!
 
 Pull Requests are basically merges that you are forced to do in order to pull back `branches` into `main`. You could do this in the terminal, or just on the GitHub website, and I suggest that you do it on the website instead since it's easier to see and approve any changes!
 

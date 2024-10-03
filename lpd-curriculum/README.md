@@ -1,6 +1,6 @@
 # Leadership and Personal Development Curriculum
 
-This is to test that git username change is fine and setup properly!
+still debating on whether i should work on this one too it's a lot of work to catch up lol
 
 ---
 
