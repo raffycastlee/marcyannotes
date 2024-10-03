@@ -105,6 +105,7 @@
       - [2024/09/30](codechallenge-curriculum/unit-0/20240930.md)
       - [2024/10/01](codechallenge-curriculum/unit-0/20241001.md)
       - [2024/10/02](codechallenge-curriculum/unit-0/20241002.md)
+      - [2024/10/03](codechallenge-curriculum/unit-0/20241003.md)
    - [Unit 1](codechallenge-curriculum/unit-1/README.md)
    - [Unit 2](codechallenge-curriculum/unit-2/README.md)
    - [Unit 3](codechallenge-curriculum/unit-3/README.md)
@@ -113,12 +114,3 @@
    - [Unit 6](codechallenge-curriculum/unit-6/README.md)
    - [Unit 7](codechallenge-curriculum/unit-7/README.md)
    - [Unit 8](codechallenge-curriculum/unit-8/README.md)
-
-
-* [Leadership and Personal Development Curriculum](lpd-curriculum/README.md)
-   - [Unit 0](ldv-curriculum/unit-0/README.md)
-   - [Unit 1](ldv-curriculum/unit-1/README.md)
-   - [Unit 2](ldv-curriculum/unit-2/README.md)
-   - [Unit 3](ldv-curriculum/unit-3/README.md)
-   - [Unit 4](ldv-curriculum/unit-4/README.md)
-   - [Unit 5](ldv-curriculum/unit-5/README.md)
