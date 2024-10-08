@@ -107,6 +107,7 @@
       - [2024/10/02](codechallenge-curriculum/unit-0/20241002.md)
       - [2024/10/03](codechallenge-curriculum/unit-0/20241003.md)
    - [Unit 1](codechallenge-curriculum/unit-1/README.md)
+      - [2024/10/07](codechallenge-curriculum/unit-0/20241007.md)
    - [Unit 2](codechallenge-curriculum/unit-2/README.md)
    - [Unit 3](codechallenge-curriculum/unit-3/README.md)
    - [Unit 4](codechallenge-curriculum/unit-4/README.md)
