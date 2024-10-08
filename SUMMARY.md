@@ -116,3 +116,4 @@
    - [Unit 6](codechallenge-curriculum/unit-6/README.md)
    - [Unit 7](codechallenge-curriculum/unit-7/README.md)
    - [Unit 8](codechallenge-curriculum/unit-8/README.md)
+   - [Sorting](codechallenege-curriculum/sorting.md)
