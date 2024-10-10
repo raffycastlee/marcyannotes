@@ -27,7 +27,8 @@ This is a fork of the handbook with added annotations by me (Raffy)!
 
 latest updates:
 
-- [Sorting [WIP]](codechallenege-curriculum/sorting.md)
+- [2024/10/09 Code Challenge with Carmen Salas](codechallenge-curriculum/unit-1/20241009.md)
+- [Sorting [WIP]](codechallenge-curriculum/sorting.md)
 - [2024/10/08 Code Challenge with Carmen Salas](codechallenge-curriculum/unit-1/20241008.md)
 - [2024/10/07 Code Challenge with Carmen Salas](codechallenge-curriculum/unit-1/20241007.md)
 - [2024/10/03 Code Challenge with Carmen Salas](codechallenge-curriculum/unit-0/20241003.md)
