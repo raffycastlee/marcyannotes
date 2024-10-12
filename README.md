@@ -19,7 +19,7 @@ layout:
 
 # Welcome to **marcyannotes**!
 
-This is a fork of the handbook with added annotations by me (Raffy)!
+This is a fork of the handbook with added daily Code Challenge notes and (my, Raffy's) answers!
 
 [gitbook](https://raffycastlee.gitbook.io/marcyannotes)
 
