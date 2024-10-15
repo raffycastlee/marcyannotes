@@ -27,7 +27,8 @@ This is a fork of the handbook with added daily Code Challenge notes and (my, Ra
 
 latest updates:
 
-- [2024/10/10 Code Challenge with Carmen Salas](codechallenge-curriculum/unit-1/20241010.md)
+- [2024/10/15 Code Challenge with Carmen Salas](codechallenge-curriculum/unit-2/20241015.md)
+- [2024/10/10 Code Challenge with Carmen Salas](codechallenge-curriculum/unit-2/20241010.md)
 - [2024/10/09 Code Challenge with Carmen Salas](codechallenge-curriculum/unit-1/20241009.md)
 - [Sorting [WIP]](codechallenge-curriculum/sorting.md)
 - [2024/10/08 Code Challenge with Carmen Salas](codechallenge-curriculum/unit-1/20241008.md)
