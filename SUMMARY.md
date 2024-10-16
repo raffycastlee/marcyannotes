@@ -102,7 +102,7 @@
     * [Hashing Passwords with Bcrypt](fullstack-curriculum/mod-8-backend/11-hashing-passwords-with-bcrypt.md)
 
 * [Code Challenge Curriculum](codechallenge-curriculum/README.md)
-   - [Unit 0 - Intro to Code Challenges](codechallenge-curriculum/unit-0/README.md)
+   - [Unit 0](codechallenge-curriculum/unit-0/README.md)
       - [2024/09/30](codechallenge-curriculum/unit-0/20240930.md)
       - [2024/10/01](codechallenge-curriculum/unit-0/20241001.md)
       - [2024/10/02](codechallenge-curriculum/unit-0/20241002.md)
