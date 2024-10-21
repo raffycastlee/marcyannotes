@@ -116,6 +116,7 @@
       - [2024/10/15](codechallenge-curriculum/unit-2/20241015.md)
       - [2024/10/16](codechallenge-curriculum/unit-2/20241016.md)
       - [2024/10/17](codechallenge-curriculum/unit-2/20241017.md)
+      - [2024/10/21](codechallenge-curriculum/unit-2/20241021.md)
    - [Unit 3](codechallenge-curriculum/unit-3/README.md)
    - [Unit 4](codechallenge-curriculum/unit-4/README.md)
    - [Unit 5](codechallenge-curriculum/unit-5/README.md)
