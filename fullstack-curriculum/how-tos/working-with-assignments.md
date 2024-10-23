@@ -5,6 +5,7 @@
   - [Feedback on Coding Assignments](#feedback-on-coding-assignments)
 - [What is a SWE-SR Assignment?](#what-is-a-swe-sr-assignment)
   - [Feedback on Short Response Assignments](#feedback-on-short-response-assignments)
+  - [Examples of Short Responses](#examples-of-short-responses)
 - [Using AI on Assignments](#using-ai-on-assignments)
 - [Submitting On Time](#submitting-on-time)
 - [How to Work On Assignments](#how-to-work-on-assignments)
@@ -124,6 +125,64 @@ To support you in your growth as a technical communicator, your instructor may a
 * **Accuracy**: The content is technically correct and adheres to current best practices and standards.
 * **Conciseness**: The communication is efficient, avoiding unnecessary detail or excessive language, while still being comprehensive.
 
+### Examples of Short Responses
+
+We won't provide an example of a `0` since that is only earned if you completely skip a question. Below you will find examples of responses that earn a score of `1`, `2`, and `3`:
+
+**<details><summary>1 — a weak response that needs a lot of improvement</summary>**
+
+This response answers the first part of the question but does so with almost no details. It addresses _what_ the benefits of modules are, but doesn't add any details that explain _how_ modules provide those benefits. The second part of the question asking for downsides is acknowledged but the author doesn't attempt to answer this question. In addition, there are typos, grammar mistakes, and missing punctuation.
+
+As a reader, I would have little to no understanding of how modules improve our projects.
+
+```markdown
+## Question
+Modules let us split up our code into separate files. What are benefits of doing this? Are there any downsides?
+
+### Response
+they makes it easier to orgnize code im not sure about downsides
+```
+</details>
+
+
+**<details><summary>2 - a solid response that could be improved</summary>**
+
+This response below is okay but could definitely be improved. It answers all parts of the question and is free of typos and grammar mistakes but it isn't written in a way that a beginner would be able to understand. The use of the word "filtered" is abstract and could be replaced with a more widely-accessible word like "organized". The example in the second sentence does bolster the first sentence, but it is still lacking in clarity and details that are relatable. Perhaps an analogy could be added to make it easier to understand.
+
+All parts of the question are answered but the last sentence is lacking depth. Overall, this response feels like it is just answering the question rather than explaining the concept of modules.
+
+As a reader, I can come away from this response having some understanding of modules but I may need more examples or an analogy to really understand.
+
+```markdown
+## Question
+Modules let us split up our code into separate files. What are benefits of doing this? Are there any downsides?
+
+### Response
+Modules allow you to have code filtered more efficiency. You can look at certain features and edit them without editing and testing the whole project. The downside is more files to look through.
+```
+
+</details>
+
+**<details><summary>3 - an excellent response that is ready to be presented</summary>**
+
+This response below is a great example of a short response answer. It answers all parts of the question, provides a great analogy that adds to the depth of the response, and is free of typos and grammar mistakes. In a few cases, Markdown is used effectively to bold key terms.
+
+In addition, the personality of the writer is coming through. It doesn't sound like an AI wrote this.
+
+As a reader, I can come away from this response having a better understanding of modules with some analogies that support my understanding.
+
+```markdown
+## Question
+Modules let us split up our code into separate files. What are benefits of doing this? Are there any downsides?
+
+### Response
+**Modules** help to section our code in separate files so we can easily navigate to the right code. Similarly, websites have different links to their respective topics instead of having a long document that would cause a user to annoyingly scroll for hours, trying to find what they came for. Modules are able to share their code with other files by **exporting** values that can be **imported** and used in other files. This is similar to how countries export goods that are imported by other countries to use.
+
+A downside of modules could be having too many modules, which in my opinion, can be overwhelming. If you're not organized, you might forget where something is!
+```
+
+</details>
+
 ## Using AI on Assignments
 
 On short response assignments, you may use generative AI tools like ChatGPT to help structure and refine your responses and to check for spelling and grammar mistakes. However, the majority of the writing should be yours! As a rule, aim to have no more than about 25% of the content written by a generative AI assistant. 
@@ -222,7 +281,11 @@ To submit an assignment, do the following:
     ![Change the compare branch to be your draft branch](./img/assignment-select-draft-branch.png)
 
 5. Tag your instructor as a **Reviewer**.
-6. Your instructor will provide feedback on GitHub and will either approve your branch to be merged or will request that you resubmit.
+
+    ![alt text](img/assignment-tag-reviewer.png)
+
+6. Submit the URL of the pull request on canvas. The URL should start with `https://github.com` and end with `/pull/NUMBER`, like this: https://github.com/benspector-mls/hello-world/pull/3
+7. Your instructor will provide feedback on GitHub and will either approve your branch to be merged or will request that you resubmit.
 
 ### How to Undo a Commit to Main and Move Commits to Draft
 
