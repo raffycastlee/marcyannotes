@@ -27,6 +27,7 @@ This is a fork of the handbook with added daily Code Challenge notes and (my, Ra
 
 latest updates:
 
+- [CC-12: Objects with Carmen Salas](codechallenge-curriculum/unit-2/20241023.md)
 - [CC-11: Strings and Objects with Carmen Salas](codechallenge-curriculum/unit-2/20241022.md)
 - [CC-10: Reading Objects with Carmen Salas](codechallenge-curriculum/unit-2/20241021.md)
 - [CC-09: Array Mutations with Carmen Salas](codechallenge-curriculum/unit-2/20241017.md)
@@ -36,4 +37,3 @@ latest updates:
 - [CC-05: For Loops and Conditionals 2 with Carmen Salas](codechallenge-curriculum/unit-1/20241009.md)
 - [Sorting [WIP]](codechallenge-curriculum/sorting.md)
 - [CC-04: For Loops and Conditionals with Carmen Salas](codechallenge-curriculum/unit-1/20241008.md)
-- [CC-03: For Loops with Carmen Salas](codechallenge-curriculum/unit-1/20241007.md)

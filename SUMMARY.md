@@ -118,6 +118,7 @@
       - [CC-09: Array Mutations](codechallenge-curriculum/unit-2/20241017.md)
       - [CC-10: Reading Objects](codechallenge-curriculum/unit-2/20241021.md)
       - [CC-11: Strings and Objects](codechallenge-curriculum/unit-2/20241022.md)
+      - [CC-12: Objects](codechallenge-curriculum/unit-2/20241023.md)
    - [Unit 3](codechallenge-curriculum/unit-3/README.md)
    - [Unit 4](codechallenge-curriculum/unit-4/README.md)
    - [Unit 5](codechallenge-curriculum/unit-5/README.md)
