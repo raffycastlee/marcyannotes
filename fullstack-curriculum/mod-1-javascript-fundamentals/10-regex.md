@@ -4,88 +4,196 @@
 Follow along with code examples [here](https://github.com/The-Marcy-Lab-School/1-2-2-regex)!
 {% endhint %}
 
+
+**Table of Contents:**
+- [Slides](#slides)
+- [What is a Regular Expression](#what-is-a-regular-expression)
+- [How to Regular Expressions in JavaScript](#how-to-regular-expressions-in-javascript)
+  - [`RegExp.test(str)` and the `i` flag](#regexpteststr-and-the-i-flag)
+  - [`str.search(RegExp)`](#strsearchregexp)
+  - [`str.match(RegExp)` and the `g` flag](#strmatchregexp-and-the-g-flag)
+  - [Flags](#flags)
+  - [`str.replace(RegExp, replacement)`](#strreplaceregexp-replacement)
+- [Regular Expression Syntax](#regular-expression-syntax)
+  - [There are a lot of cool ways to use regular expressions](#there-are-a-lot-of-cool-ways-to-use-regular-expressions)
+  - [Special Characters](#special-characters)
+
+
 ## Slides
 
 {% embed url="https://docs.google.com/presentation/d/1KNxfevZGXU2srFOejf6qBgOwXznH8ddQ3ePeqTXbGiQ/embed?start=false&loop=false&delayms=3000" %}
 
-## Context
-The fellows will have heard a lot about RegEx and how scary it is. Indeed, Marcy fellows joke around about RegEx, but unfortunately they kind of *are* scared of it. We need to open RegEx back up as a cool tool and not alien gibberish. This lesson is not about throwing the kitchen sink at them. It's just about exposing them to the ideas, and showing that it's a powerful tool is simpler than it looks.
+## What is a Regular Expression
 
-Also, the entire first half (2/3 almost) is only about RegEx itself, not even involving JS yet. We just want them to see the concepts at play before worrying about them getting into their editor. Also, I know there are a lot of online RegEx editors, but we're going to use scriptular.com. It is super paired down and limits you to some strings to test and the regex itself. It will be easy to see on screen and doesn't have any bells and whistles to distract the students. Obviously, students can play around with better editors on their own, but let's keep our focus tight during lectures. We'll need one tab for our main "Hello there!" example, and another tab open for various experiments.
+> A **regular expression** (or "Reg Ex") is a sequence of characters that specifies a "match pattern" to search for strings in text, extract information, or validate input.
 
-# Part 1 - HOOK: The crazy power of RegEx
-To demonstrate that power take a minute to show them the first slide. Go through the code, and all it's doing, or have the fellows explain what it does. Either way, only take a minute or two. The point is that it's doing a fair amount of work. Then smash cut to the next slide where all those lines are done in like 10 characters. Talk about how it may look weird now, but by the end of the lecture, they'll know exactly how it works and how it's really not that hard to do with RegEx.
+To create a regular expression, we use a pair of forward slashes with the match pattern inside. A regular expression can also be created using the `new RegExp()` constructor.
 
-Slides: 1-4
-time: 5 min
-total: 5 min
+In JavaScript, a regular expression is a type of object.
 
-# Part 2 - Speedrunning the basics
-After you give a *brief* overview on slide 5 about what RegEx is, you come to the "speedrun" section. The idea here is not to slowly slog through each and every type that RegEx can filter by, but instead show them the simpler stuff quickly so that they can experiment on their own. None of RegEx is intuitive, so showing the whole picture roughly will help them draw it on their own slowly. The scripting on this section is pretty tight, but it all flows. Start in scriptular.com with the test string "Hello there!" already in. The slides go in this order, however if possible memorize the flow, do it live in scriptular, and then scan through the slides as a mini review.
+```js
+// can be used to search for the sequence of characters "cat"
+const catRegEx = /cat/  
+// can be used to search for the sequence of characters "dog"
+const dogRegEx = new RegExp('dog');
 
-## Letters
-Show that the first tool to use are letters themselves! Use "Hello there" and note how it matches on just the words, skipping the "!"
+console.log(typeof catRegEx, typeof dogRegEx);
+// object object
+```
 
-## Flags: case insensitive
-Lowercase the "Hello" and point out that the match disappears because if you use letters, the match must be exact. Say that we can get more leeway by using `flags` to modify the behavior of our regex. The `i` flag makes our entire RegEx not care about cases, so once you add it, point out we get a match again
+## How to Regular Expressions in JavaScript
 
-## Flags: global
-Drop all the letters except for "e" and point out that by default, RegEx only matches on the first instance, so only the first "e" is highlighted. If we want to hit *every* instance, we need the `g` "global" flag. Replace the `i` flag and see how we suddenly match all 'e's.
+The methods to be aware of that utilize regular expressions are:
+1. `RegExp.test(str)` - validate that a string has a match
+2. `str.search(RegExp)` - find the index of a match in a string
+3. `str.match(RegExp)` - find one or more matches in a string
+4. `str.replace(RegExp, replacement)` - replace one or more matches in a string
 
-## Flags: combine
-Point out that you actually didn't need to delete the other, you can combine flags. Add the `g` back in, and then replace 'e' with 'h'. Now that you have `gi` flags, both the upper and lowercase match!
+> Note that the first method is invoked on a regular expression and the input is a string while the other two are invoked on a string and the input is a regular expression.
 
-## Character sets
-Let's say that we don't just want `h` though, we actually want *any* vowel. If I specify letters "aeiou" that would pick up individual letters, because remember, letter sequences must match. So all the vowels will be missed. No, what we want is only one at a time, choosing from a small set. Enter Character Classes (or sets, I call them sets). These brackets let us pick up individual letters like we want. Toggle the global flag to remind them that without it, this doesn't work.
+### `RegExp.test(str)` and the `i` flag
 
-## Negated Sets
-Sometimes you want anything *but* the specified characters. In that case you add a little carrot, so now I'm getting anything that *isn't* a vowel. Everything but `a,e, i, o, or u` will now match.
+The `RegExp.test(str)` returns `true` if there is a match between the regular expression and the given string.
 
-## Quantifiers
-That's a broad stroke though, so let's narrow down the *number* of things we want. We have 1 or more, 0 or more, or 0 or 1 of something. Use the `+` to show that now sequences of characters are matched.
+```js
+const catRegEx = /cat/ 
 
-## Exact Quantifiers
-That's cool, lets build on this and try to match only double consonants, meaning we only want 2 exactly. Just show them the `{ }` quantifier at a set number, you can mention the range options, but don't dwell, it's on the cheat sheet.
+catRegEx.test("the cat in the hat"); // Returns true
+catRegEx.test("the dog in the hat"); // Returns false because no "cat"
+catRegEx.test("the Cat in the hat"); // Returns false because of case sensitivity
+```
 
-Finally point out the problem though: instead of getting "th" it's getting the space and "t". Before moving onto the solution, take a pause and review the slides of everything you did.
+By default, regular expressions are case sensitive and, unless otherwise specified, must be an exact match.
 
-Slides: 6-14
-time: 10min
-total: 15min
+Adding the `i` flag after the second `/` allows for case-**insensitive** matches:
 
-# Part 3: Special Character Classes
-Explain the problem is that the space *is* a non vowel, so it matches and eats up the first character in our {2} quantifier. We could easily add a " " space to our negated set, but there's a better way. A special character class `\s` which gets *any* whitespace. Use that as a segue to show *all* the special characters. Basically show the "-" range pattern, how capitalizing flips the matcher to anything *but* what is specified, and the `.` wildcard. Take some questions about these, show some off (in a new tab preferably) but don't take too long here. They're *just* about to go off on their own for 10 minutes.
+```js
+// Add the i flag after the second /
+const catRegEx = /cat/i 
 
-After a few questions, use the `\s` to complete our pattern that gets all double consonants and you're set!
+catRegEx.test("the cat in the hat"); // Returns true
+catRegEx.test("the Cat in the hat"); // Also returns true
+```
 
-Slides: 15-16
-time: 5min
-total: 20min
+### `str.search(RegExp)`
 
-# Part 4: Groups and Anchors
-Just take a few minutes to get the groups and anchors explained. Do not talk about *capture* groups now, only talk about groups as a way to specify a group of multiple characters. They'll definitely confuse groups and sets so give that a minute to breath. Also do not use pipe operators outside of groups, it's confusing and 9 times out of 10 not what the fellows meant to do.
+`str.search(RegExp)` returns the index of the first match between the string and the given regular expression, or `-1` if none exist.
 
-Slides: 17-19
-time: 5min
-total: 25min
+```js
+const phrase = 'How now brown cow?'
+phrase.search(/brow/);  // Returns 8
+phrase.search(/ow/);    // Returns 1
+```
 
-# Part 5: Free Learning
-Now that the students have seen a *lot* in the last 20 minutes, give them 10 minutes on their own to explore and experiment with scriptular (not js). They can do this in pairs, groups, or solo, whatever you're feeling. Then take 5 minutes to come back as a group. I recommend you come up with a few little challenges for the fellows to try as well. Make sure to slack out the [cheat sheet](https://github.com/The-Marcy-Lab-School/1-2-2-cheat-sheet_regex) before, and leave the slide up on the cheat sheet one.
+### `str.match(RegExp)` and the `g` flag
 
-Slides: 20-21
-time: 10min + 5min
-total: 40min
+`str.match(RegExp)` returns an array containing matches between the string and the given regular expression. 
 
-# Part 6: JS RegEx
-Show them the 2 ways to build regular expressions in js with the constructor and literal syntax. They'll almost always use literal unless they need something to be dynamic. Then demonstrate how the `.test` method returns a boolean, and run through a few fun little examples.
+By default, regular expressions only match the first match. 
 
-Slides: 22-24
-time: 5 min
-total: 45min
+```js
+const phrase = 'How now brown cow?'
+const firstMatch = phrase.match(/ow/);
 
-# Part 7: Solving the Original Function Together
-The goal is to build the function from the opening `isOnlyAlphanumeric` but now do it with RegEx as a class. Experiment with scriptular first, model that this is a faster way to test RegEx patterns. Let the class lead on this one. You should have plenty of time. If you get through the example, feel free to do another example with `.test` or experiment with `.match` or `.replace`.
+// Without the global flag, match will only return the first match
+console.log(firstMatch[0]);      // Prints 'ow'
+console.log(firstMatch.length);  // Prints 1
+```
 
-Slides: 25-27
-time: 10 min
-total: 55min
+Adding the global `g` flag after the second `/` causes `match` to return ALL matches.
+
+```js
+// With the global flag:
+const allMatches = phrase.match(/ow/g);
+console.log(allMatches);        // Prints ['ow', 'ow', 'ow', 'ow'];
+console.log(allMatches.length); // Prints 4
+```
+
+### Flags
+
+Flags go after the second forward slash and alter the behavior of the regular expression. They can be combined.
+
+* The `g` flag make the regular expression **global**, meaning it will return ALL matches between a string and regular expression if possible. 
+* The `i` flag makes the regular expression case **insensitive**
+
+This is particularly useful with the `str.match(RegExp)` method:
+
+```js
+const phrase = "my cat is named Catherine";
+
+// match all "cat"s regardless of case, not just the first one
+const allCats = phrase.match(/cat/gi); 
+
+console.log(allCats); // Prints ['cat', 'Cat']
+```
+
+### `str.replace(RegExp, replacement)`
+
+`str.replace(RegExp, replacement)` replaces matches between the string the given regular expression with the given `replacement` string. 
+
+```js
+const phrase = "my cat is named Catherine";
+
+// Replace only the first "cat", regardless of case
+const newPhrase = phrase.replace(/cat/i, 'dog');
+
+console.log(newPhrase); // Prints 'my dog is named dogherine'
+```
+
+By default, `replace` will only replace the first match. You can use the `g` flag to replace ALL matches.
+
+```js
+const phrase = "my cat is named Catherine";
+
+// Replace all "cat"s regardless of case, not just the first one
+const newPhrase = phrase.replace(/cat/gi, 'dog');
+
+console.log(newPhrase); // Prints 'my dog is named dogherine'
+```
+
+## Regular Expression Syntax
+
+### There are a lot of cool ways to use regular expressions
+
+Here are some snippets to get started! 
+
+| **Name**                   | **Info**                              | **Example**        |
+| -------------------------- | ------------------------------------- | ------------------ |
+| Flags                      | g=global, I=insensitive               | /cat/gi            |
+| letters                    | You know letters                      | /dog/              |
+| digits                     | You know digits                       | /12/               |
+| Character Set/Class        | Brackets                              | /[aeiou]/          |
+| Negated Character Set      | Carrot and brackets                   | /[^aeiou]/         |
+| O or more                  | *                                     | /a*/               |
+| 1 or more                  | +                                     | /a+/               |
+| 0 or 1                     | ?                                     | /a?/               |
+| Or                         | \|                                    | /cat\|dog/         |
+| Start of string            | Carrot, no brackets                   | /^hi/              |
+| End of string              | Dollar sign                           | /bye$/             |
+| Quantifier exactly         | Braces, one number                    | /AH{10}/           |
+| Quantifier at least X many | Braces, one number and comma          | /OH{3,}/           |
+| Quantifier exact range     | Braces, two comma separated numbers   | /WO{2,4}W/         |
+| Groups                     | Parens with optional pipe OR operator | /(my)\s(cat\|dog)/ |
+
+
+### Special Characters 
+
+| Character Class | Definition                    |
+| --------------- | ----------------------------- |
+| [0-9]           | Any single digit              |
+| [3-30]          | And number in range           |
+| [a-z]           | Any lowercase letter          |
+| [a-d]           | Any lowercase letter in range |
+| [A-Z]           | Any uppercase letter          |
+| [E-Q]           | Any uppercase letter          |
+| [a-zA-Z]        | Any letter                    |
+| \d              | Any single digit              |
+| \D              | Any NON digit                 |
+| \w              | Any alphanumeric (and _)      |
+| \W              | Any NON alphanumeric          |
+| \s              | Any whitespace character      |
+| \S              | Any NON whitespace character  |
+| \b              | Any word break                |
+| \B              | Any NON word break            |
+| .               | Any character at all          |
+| \\.             | An escaped period             |
