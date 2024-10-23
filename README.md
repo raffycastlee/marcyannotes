@@ -28,7 +28,7 @@ This is a fork of the handbook with added daily Code Challenge notes and (my, Ra
 latest updates:
 
 - [CC-12: Objects with Carmen Salas](codechallenge-curriculum/unit-2/20241023.md)
-- [CC-11: Strings and Objects with Carmen Salas](codechallenge-curriculum/unit-2/20241022.md)
+- [CC-11: Objects with Carmen Salas](codechallenge-curriculum/unit-2/20241022.md)
 - [CC-10: Reading Objects with Carmen Salas](codechallenge-curriculum/unit-2/20241021.md)
 - [CC-09: Array Mutations with Carmen Salas](codechallenge-curriculum/unit-2/20241017.md)
 - [CC-08: String Mutation and Array Iteration with Carmen Salas](codechallenge-curriculum/unit-2/20241016.md)

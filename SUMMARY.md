@@ -117,7 +117,7 @@
       - [CC-08: String Mutation and Array Iteration](codechallenge-curriculum/unit-2/20241016.md)
       - [CC-09: Array Mutations](codechallenge-curriculum/unit-2/20241017.md)
       - [CC-10: Reading Objects](codechallenge-curriculum/unit-2/20241021.md)
-      - [CC-11: Strings and Objects](codechallenge-curriculum/unit-2/20241022.md)
+      - [CC-11: Objects](codechallenge-curriculum/unit-2/20241022.md)
       - [CC-12: Objects](codechallenge-curriculum/unit-2/20241023.md)
    - [Unit 3](codechallenge-curriculum/unit-3/README.md)
    - [Unit 4](codechallenge-curriculum/unit-4/README.md)
