@@ -119,6 +119,7 @@
       - [CC-10: Reading Objects](codechallenge-curriculum/unit-2/20241021.md)
       - [CC-11: Objects](codechallenge-curriculum/unit-2/20241022.md)
       - [CC-12: Objects](codechallenge-curriculum/unit-2/20241023.md)
+      - [CC: Unit 2 Diagnostic](codechallenge-curriculum/unit-2/20241024.md)
    - [Unit 3](codechallenge-curriculum/unit-3/README.md)
    - [Unit 4](codechallenge-curriculum/unit-4/README.md)
    - [Unit 5](codechallenge-curriculum/unit-5/README.md)
