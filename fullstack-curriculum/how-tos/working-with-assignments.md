@@ -1,7 +1,9 @@
-# How to Set Up Assignments
+# How to Do Short Response and Coding Assignments
 
 **Table of Contents:**
 - [What is a SWE Assignment?](#what-is-a-swe-assignment)
+  - [Tips for Working on SWE Coding Assignments](#tips-for-working-on-swe-coding-assignments)
+  - [Jest and Testing](#jest-and-testing)
   - [Feedback on Coding Assignments](#feedback-on-coding-assignments)
 - [What is a SWE-SR Assignment?](#what-is-a-swe-sr-assignment)
   - [Feedback on Short Response Assignments](#feedback-on-short-response-assignments)
@@ -23,11 +25,58 @@ Software Engineering (SWE) code assignments are opportunities for you to practic
 
 Code assignments will typically have an `src` directory where you will be writing your code. They will also have a `tests` directory with `.spec.js` test files that will automatically test your code each time you push to your repository.
 
-### Feedback on Coding Assignments
+### Tips for Working on SWE Coding Assignments
 
-You are encouraged to look at the `.spec.js` test files in the `tests` directory as they will show you exactly how we expect to be able to use your functions. **DO NOT MODIFY THE TESTS**.
+As you work on your coding assignment, you may be tempted to jump right in and start coding. However, it is often best to slow down and plan out your approach first. Look at the problem and make sure you understand fully what it is asking you to do. At Marcy, we recommend that you use the PEDAC approach ([read more about PEDAC here](./how-to-pedac.md)).
 
-To run tests manually, you can use the command:
+You may get stuck along the way, which can always be frustrating. Debugging is an essential skill but its hard to know where to start sometimes. That's why we love the "rubber duck" approach ([read more about debugging with the rubber duck approach here](./how-to-debug.md))
+
+### Jest and Testing
+
+Tests are an essential part of professional software development. Without testing our code, we run the risk of deploying code with unexpected bugs. With testing, we are forced to think critically about how we expect our program to behave and then write our code to satisfy those tests. This process of first writing tests and then writing code to satisfy those tests is called **Test-Driven Development (TDD)**.
+
+At Marcy, we use [Jest](https://jestjs.io/) to write automated tests for coding assignments. Automated tests are JavaScript files that:
+1. Import functions from source code
+2. Run those functions with various inputs
+3. Compare the returned values against the expected values. 
+
+A Jest test is written in a file ending in `.spec.js` or `.test.js` and looks like this:
+
+{% code title="circle-helpers.spec.js" lineNumbers="true" %}
+```javascript
+// Import the functions to be tested
+const {
+  getArea,
+  getDiameter,
+  getCircumference
+} = require('./circle-helpers')
+
+// Create a "Test Suite" for these functions
+describe('Circle Helper Tests', () => {
+  // Test the getArea function with a series of expectations
+  test('getArea returns the Area of a circle', () => {
+    // Translation: We expect getArea(2) to return Math.PI * 2 * 2
+    expect(getArea(2)).toBe(Math.PI * 2 * 2);
+    expect(getArea(3)).toBe(Math.PI * 3 * 3);
+
+    // It is useful to think about what should be returned for "bad" inputs. 
+    expect(getArea()).toBe(NaN);
+    expect(getArea('hello')).toBe(NaN);
+  });
+
+  // Test the getDiameter function with a series of expectations
+  test('getDiameter returns the Diameter of a circle', () => {
+    // ...tests for getDiameter
+  });
+
+  // ...more tests
+})
+```
+{% endcode %}
+
+Each assignment will have automated test files in the `tests` directory. They will show you exactly how we expect your functions to behave. **DO NOT MODIFY THE TESTS**.
+
+To run these automated tests, use the command:
 
 ```sh
 npm test # run the tests once
@@ -35,13 +84,31 @@ npm test # run the tests once
 npm run test:w # run the tests each time the file changes ("watch mode")
 ```
 
-{% hint style="info" %}
+After running this command, you will see the following output. Initially, all tests will fail.
 
-In order for a coding assignment to be marked as "Complete", it must pass at least 75% of the automated tests.
+![failing Jest tests](img/failing-tests.png)
+
+The test output provides some really useful information. 
+* We can see which tests failed
+* For each failing test, we can see which `expect()` statement failed
+* We can see what the expected value is (`12.566...`) and what our function actually returned (`undefined`).
+
+Armed with this information, we can more confidently build our functions knowing that we have a specific set of targets to aim for. Automated tests allow us to repeatedly run our code against the same set of tests until all expectations are met.
+
+All assignments will also come with a `src/playground.js` file that you can use to manually test your code as you develop. We recommend the following workflow:
+1. Run the automated tests to see what you are aiming for.
+2. Copy the function you are currently working on into the `playground.js` file and use the test cases to manually test your code
+3. Once you are satisfied, copy your function back into the original file and run the automated tests again. 
+4. If anything fails, return to the `playground.js` file to make adjustments.
+5. Repeat.
+
+### Feedback on Coding Assignments
+
+In order for a coding assignment to be marked as "Complete", it must pass at least 75% of the automated tests (though you should always strive to pass 100% of the tests!).
 
 For example, an assignment with 10 automated tests requires 8 passing tests to be marked "Complete".
 
-{% endhint %}
+**There is no limit to the number of times you can submit an assignment.** As such, you are encouraged to **always submit your assignments on time to ensure that your instructor can provide you feedback and support** to complete your assignments.
 
 To support you in your growth as a software engineer, your instructor may provide feedback on any of the following areas (roughly in order of importance):
 
@@ -77,42 +144,33 @@ To support you in your growth as a software engineer, your instructor may provid
 
 ## What is a SWE-SR Assignment?
 
-Software Engineering (SWE) Short Response (SR) assignments are opportunities to develop your technical communication skills. In these assignments, you may encounter the following types of questions:
+Software Engineering (SWE) Short Response (SR) assignments are opportunities to develop your technical communication skills. 
+
+In these assignments, you may encounter the following types of prompts:
 * Research a new topic and share your findings.
 * Explain a piece of syntax with examples and analogies.
 * Analyze a programming best practice and list its advantages and disadvantages.
 
-Short Response questions will always be found in the `README.md` file of your assignment. Each question will be listed under a `## Question X` heading and you should add your responses under the `### Response X` heading using Markdown ([read about Markdown syntax here](https://www.markdownguide.org/basic-syntax/)).
+Your intended audience should be someone with _some_ experience programming but who is still learning. As such, strive to be as clear and concise as possible. There is a fine balance between too much information and just enough but when in doubt, provide more details. Examples and analogies can often help! 
 
-For example
-```markdown
-## Question 2
-
-Modules let us split up our code into separate files. What are benefits of doing this? Are there any downsides?
-
-### Response 2
-
-Response here...
-```
-
-For these assignments, your intended audience should be someone with some experience programming but who is still learning. As such, strive to be as clear and concise as possible. There is a fine balance between too much information and just enough. Examples and analogies can often help!
+Strive to do more than just answer the prompts. Use the prompts as opportunities to practice your technical communication. While anyone can write functional code, not everyone can communicate clearly so take pride in this work!
 
 ### Feedback on Short Response Assignments
 
-Every short response question will be given a score from 0-3 using the following scoring system:
+Every response will be given a score from 0-3 using the following scoring system:
 
-* 0 — Did not attempt the question 
-* 1 — Attempted the question and the response is more wrong than right, or parts of the question are not fully answered, or the answer is lacking in clarity. Examples and/or diagrams are missing (when required).
-* 2 — Attempted the question and all parts of the question are answered, but there are some mistakes and/or the clarity could be improved. Examples and/or diagrams may be missing or could be improved.
-* 3 — Answered the question correctly and completely. The response is clear and concise. Examples and/or diagrams are well-chosen and enhance the response.
+* 0 — Did not attempt to answer the prompt 
+* 1 — Attempted the prompt and the response is more wrong than right, or parts of the prompt are not fully answered, or the answer is lacking in clarity. Examples and/or diagrams are missing (when required).
+* 2 — Attempted the prompt and all parts of the prompt are answered, but there are some mistakes and/or the clarity could be improved. Examples and/or diagrams may be missing or could be improved.
+* 3 — Answered the prompt correctly and completely. The response is clear and concise. Examples and/or diagrams are well-chosen and enhance the response.
 
-We understand that typos and grammar mistakes can happen, however, you will also lose .5 points on any the question where typos or grammar errors are "distracting". Distracting meaning that if you saw this on the job, it would have to be retyped for clarification or for the sake of presentation.
+We understand that typos and grammar mistakes can happen, however, you will also lose .5 points on any the prompt where typos or grammar errors are "distracting". Distracting meaning that if you saw this on the job, it would have to be retyped for clarification or for the sake of presentation.
 
 {% hint style="info" %}
 
 In order for a short response assignment to be marked as "Complete", you must score at least a 75% on the assignment. 
 
-For example, an assignment with 5 short response questions has a total possible score of 15. You must score at least a 12 on that assignment.
+For example, an assignment with 5 short response prompts has a total possible score of 15. You must score at least a 12 on that assignment.
 
 {% endhint %}
 
@@ -127,17 +185,30 @@ To support you in your growth as a technical communicator, your instructor may a
 
 ### Examples of Short Responses
 
-We won't provide an example of a `0` since that is only earned if you completely skip a question. Below you will find examples of responses that earn a score of `1`, `2`, and `3`:
+Short Response prompts will always be found in the `README.md` file of your assignment. Each prompt will be listed under a `## Prompt X` heading and you should add your responses under the `### Response X` heading using Markdown ([read about Markdown syntax here](https://www.markdownguide.org/basic-syntax/)).
+
+For example
+```markdown
+## Prompt 2
+
+Modules let us split up our code into separate files. What are benefits of doing this? Are there any downsides?
+
+### Response 2
+
+Response here...
+```
+
+Below are some examples of responses that would score a 1, 2 or 3.
 
 **<details><summary>1 — a weak response that needs a lot of improvement</summary>**
 
-This response answers the first part of the question but does so with almost no details. It addresses _what_ the benefits of modules are, but doesn't add any details that explain _how_ modules provide those benefits. The second part of the question asking for downsides is acknowledged but the author doesn't attempt to answer this question. In addition, there are typos, grammar mistakes, and missing punctuation.
+This response answers the first part of the prompt but does so with almost no details. It addresses _what_ the benefits of modules are, but doesn't add any details that explain _how_ modules provide those benefits. The second part of the prompt asking for downsides is acknowledged but the author doesn't attempt to answer this prompt. In addition, there are typos, grammar mistakes, and missing punctuation.
 
 As a reader, I would have little to no understanding of how modules improve our projects.
 
 {% overflow="wrap" %}
 ```markdown
-## Question
+## Prompt
 Modules let us split up our code into separate files. What are benefits of doing this? Are there any downsides?
 
 ### Response
@@ -149,15 +220,15 @@ they makes it easier to orgnize code im not sure about downsides
 
 **<details><summary>2 - a solid response that could be improved</summary>**
 
-This response below is okay but could definitely be improved. It answers all parts of the question and is free of typos and grammar mistakes but it isn't written in a way that a beginner would be able to understand. The use of the word "filtered" is abstract and could be replaced with a more widely-accessible word like "organized". The example in the second sentence does bolster the first sentence, but it is still lacking in clarity and details that are relatable. Perhaps an analogy could be added to make it easier to understand.
+This response below is okay but could definitely be improved. It answers all parts of the prompt and is free of typos and grammar mistakes but it isn't written in a way that a beginner would be able to understand. The use of the word "filtered" is abstract and could be replaced with a more widely-accessible word like "organized". The example in the second sentence does bolster the first sentence, but it is still lacking in clarity and details that are relatable. Perhaps an analogy could be added to make it easier to understand.
 
-All parts of the question are answered but the last sentence is lacking depth. Overall, this response feels like it is just answering the question rather than explaining the concept of modules.
+All parts of the prompt are answered but the last sentence is lacking depth. Overall, this response feels like it is just answering the prompt rather than explaining the concept of modules.
 
 As a reader, I can come away from this response having some understanding of modules but I may need more examples or an analogy to really understand.
 
 {% overflow="wrap" %}
 ```markdown
-## Question
+## Prompt
 Modules let us split up our code into separate files. What are benefits of doing this? Are there any downsides?
 
 ### Response
@@ -169,7 +240,7 @@ Modules allow you to have code filtered more efficiency. You can look at certain
 
 **<details><summary>3 - an excellent response that is ready to be presented</summary>**
 
-This response below is a great example of a short response answer. It answers all parts of the question, provides a great analogy that adds to the depth of the response, and is free of typos and grammar mistakes. In a few cases, Markdown is used effectively to bold key terms.
+This response below is a great example of a short response answer. It answers all parts of the prompt, provides a great analogy that adds to the depth of the response, and is free of typos and grammar mistakes. In a few cases, Markdown is used effectively to bold key terms.
 
 In addition, the personality of the writer is coming through. It doesn't sound like an AI wrote this.
 
@@ -177,7 +248,7 @@ As a reader, I can come away from this response having a better understanding of
 
 {% overflow="wrap" %}
 ```markdown
-## Question
+## Prompt
 Modules let us split up our code into separate files. What are benefits of doing this? Are there any downsides?
 
 ### Response
