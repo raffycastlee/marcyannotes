@@ -27,6 +27,7 @@ This is a fork of the handbook with added daily Code Challenge notes and (my, Ra
 
 latest updates:
 
+- [CC-??: First CodeSignal Challenge](codechallenge-curriculum/unit-3/20241029.md)
 - [Intro to PEDAC (and Algorithms)](codechallenge-curriculum/unit-3/20241028.md)
 - [Unit 2 Diagnostic](codechallenge-curriculum/unit-2/20241024.md)
 - [CC-12: Objects with Carmen Salas](codechallenge-curriculum/unit-2/20241023.md)
@@ -36,4 +37,3 @@ latest updates:
 - [CC-08: String Mutation and Array Iteration with Carmen Salas](codechallenge-curriculum/unit-2/20241016.md)
 - [CC-07: Array Iteration with Carmen Salas](codechallenge-curriculum/unit-2/20241015.md)
 - [CC-06: String Mutations with Carmen Salas](codechallenge-curriculum/unit-2/20241010.md)
-- [CC-05: For Loops and Conditionals 2 with Carmen Salas](codechallenge-curriculum/unit-1/20241009.md)
