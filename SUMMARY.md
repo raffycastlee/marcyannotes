@@ -120,6 +120,7 @@
    - [Unit 3](codechallenge-curriculum/unit-3/README.md)
       - [Intro to PEDAC (and Algorithms)](codechallenge-curriculum/unit-3/20241028.md)
       - [CC-??: First CodeSignal Challenge](codechallenge-curriculum/unit-3/20241029.md)
+      - [FizzBuzz into Array](codechallenge-curriculum/unit-3/20241030.md)
    - [Unit 4](codechallenge-curriculum/unit-4/README.md)
    - [Unit 5](codechallenge-curriculum/unit-5/README.md)
    - [Unit 6](codechallenge-curriculum/unit-6/README.md)
