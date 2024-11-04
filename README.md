@@ -27,6 +27,7 @@ This is a fork of the handbook with added daily Code Challenge notes and (my, Ra
 
 latest updates:
 
+- [Number adds Evens sans Odds](codechallenge-curriculum/unit-3/20241104.md)
 - [FizzBuzz into Array](codechallenge-curriculum/unit-3/20241030.md)
 - [CC-??: First CodeSignal Challenge](codechallenge-curriculum/unit-3/20241029.md)
 - [Intro to PEDAC (and Algorithms)](codechallenge-curriculum/unit-3/20241028.md)
@@ -36,4 +37,3 @@ latest updates:
 - [CC-10: Reading Objects with Carmen Salas](codechallenge-curriculum/unit-2/20241021.md)
 - [CC-09: Array Mutations with Carmen Salas](codechallenge-curriculum/unit-2/20241017.md)
 - [CC-08: String Mutation and Array Iteration with Carmen Salas](codechallenge-curriculum/unit-2/20241016.md)
-- [CC-07: Array Iteration with Carmen Salas](codechallenge-curriculum/unit-2/20241015.md)
