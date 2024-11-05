@@ -122,6 +122,7 @@
       - [CC-??: First CodeSignal Challenge](codechallenge-curriculum/unit-3/20241029.md)
       - [FizzBuzz into Array](codechallenge-curriculum/unit-3/20241030.md)
       - [Number adds Evens sans Odds](codechallenge-curriculum/unit-3/20241104.md)
+      - [First Non-repeating](codechallenge-curriculum/unit-3/20241105.md)
    - [Unit 4](codechallenge-curriculum/unit-4/README.md)
    - [Unit 5](codechallenge-curriculum/unit-5/README.md)
    - [Unit 6](codechallenge-curriculum/unit-6/README.md)
