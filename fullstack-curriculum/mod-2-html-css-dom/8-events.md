@@ -1,105 +1,136 @@
-# 2-2-1-dom-events
+# Event
 
 {% hint style="info" %}
 Follow along with code examples [here](https://github.com/The-Marcy-Lab-School/2-2-1-lecture-dom-events)!
 {% endhint %}
 
 **Table of Contents**
-- [Event Driven Architecture](#event-driven-architecture)
-- [First, an example:](#first-an-example)
-- [Event type, handlers](#event-type-handlers)
-- [The `event` object](#the-event-object)
-- [Good to know, not to use: inline handlers](#good-to-know-not-to-use-inline-handlers)
+- [Event Driven Programming: Listen and React](#event-driven-programming-listen-and-react)
+- [addEventListener](#addeventlistener)
+  - [Event Type](#event-type)
+  - [Event Handlers and the `event` Object](#event-handlers-and-the-event-object)
+  - [Challenge](#challenge)
+- [Good to Be Aware of, Not to Use: Inline Handlers](#good-to-be-aware-of-not-to-use-inline-handlers)
 - [Event Propagation](#event-propagation)
-- [Event Delegation](#event-delegation)
+  - [Event Delegation](#event-delegation)
 - [Removing Event Listeners](#removing-event-listeners)
 
-## Event Driven Architecture
+## Event Driven Programming: Listen and React
 
-So far, the code that we have written will be executed, one line after the other.
-
-```js
-console.log('a')
-console.log('b')
-console.log('c')
-```
-
-In **event-driven architecture**, some of the code that we write will only be executed in response to a **user event** such as:
-* clicking a button
-* moving your mouse
-* using your keyboard
+Imagine a website with a button. Each time you click on the button, something happens (maybe the color changes!). How would you program something like this?
 
 ![](./img/events.png)
 
-## First, an example:
+In **event-driven programming**, we instruct our program to **listen for events** and **react when the event is triggered**.
+
+An event can be triggered by:
+* clicking a button
+* moving your mouse
+* pressing a key on your keyboard
+* the webpage finishes loading
+* the window is resized
+* the user scrolls down the page
+
+In JavaScript (and many other languages), we set up our program to react to events by "registering" a callback function called an **event handler** that is tied to an element and an event type.
+
+{% code title="0/basic-examples/index.js.js" lineNumbers="true" %}
+```javascript
+// 1. Select the "target" element
+const button = document.querySelector('button#click-me')
+
+// 2. Add an event listener to invoke a callback when a 'click' event occurs
+button.addEventListener('click', () => {
+  console.log('a click event occurred!')
+});
+```
+{% endcode %}
+
+{% hint style="info" %}
+The terms "event listener" and "event handler" are often used interchangeably but technically they work together.
+{% endhint %}
+
+## addEventListener
+
+The `addEventListener` method is available on all elements in the DOM and is invoked with two values, an **event type** string and an **event handler** callback.
+
+A single element can have multiple event listeners / event handlers.
 
 ```js
-// 1. select the element that will be the "target" of the event
-// 2. define an event handler callback
-// 3. make the button to "listen" for "click" events and respond by invoking the event handler
+button.addEventListener('click', () => {
+  console.log('a click event occurred!')
+});
 
-const button = document.querySelector('button');
-const handleClick = (event) => {
-  console.log('a click occurred!');
+button.addEventListener('mousemove', () => {
+  console.log('a mousemove event occurred!')
+});
+```
+
+### Event Type
+
+The first argument of `.addEventListener()` is a string that defines the event type to listen for such as:
+- `"click"` - an element was clicked
+- `"mousemove"` - the mouse moved over an element
+- `"keydown"` - a key was pressed down
+- `"keyup"` - a key was released
+- `"submit"` - a form was submitted
+- `"input"` - the `value` of an `input`, `select`, or `textarea` has changed
+
+You can find more information about [Events on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Element/click_event).
+
+### Event Handlers and the `event` Object
+
+The second argument of `addEventListener` is an **event handler**, a callback function that is invoked when the specified event fires "on" the given element. 
+
+The handler will be invoked by `addEventListener` with an `event` object as an input. This `event` object has many useful properties / methods about the event, like the `event.type` and `event.target`:
+
+```js
+const handleEvent = (event) => {
+  console.log(`An event of type "${event.type}" occurred!`);
+  console.log("It was triggered by:", event.target);
+  console.log(event);
 }
-button.addEventListener('click', handleClick);
+
+const button = document.querySelector('button#click-me');
+button.addEventListener("click", handleEvent);
 ```
 
-An element is programmed to "listen" for these events.
+These two properties are perhaps the most important. They are on every `event` object regardless of the event type:
+- `event.target` — the Element that triggered the event.
+- `event.currentTarget` — The Element that is is handling the event (often the same as `event.target` but can also be different. See [event delegation](#event-delegation) below).
 
-An **event handler** is the function that is invoked when an event "fires".
+{% hint style="info" %}
+Tip: Whenever you are trying a new type of event, log the `event` object to the console to see what properties are available! For example, the [MouseEvent object](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent) has different properties than the [KeyboardEvent object](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+{% endhint %}
 
-> See this in action in the `0-basic-examples/` website.
+### Challenge
 
-## Event type, handlers
-
-When you use `Element.addEventListener()` method, the first argument defines the event type which may be one of:
-- `click`
-- `mousemove`
-- `keydown`
-- `keyup`
-- `submit`
-- many more!
-
-The second argument is an **Event Handler**, a callback function that is invoked when the event fires.
+Suppose you had this event handler:
 
 ```js
-// a generic event handler
-const eventHandler = () => console.log('an event occurred!');
+const changeToRandomColor = (event) => {
+  // Generate a random color string
+  const red = Math.floor(Math.random() * 256);
+  const green = Math.floor(Math.random() * 256);
+  const blue = Math.floor(Math.random() * 256);
+  const color = `rgb(${red}, ${green}, ${blue})`
 
-// register an event listener on a button
-document.querySelector('button').addEventListener('click', eventHandler);
-
-// register these event listeners on the entire document
-document.addEventListener('mousemove', eventHandler);
-document.addEventListener('keydown', eventHandler);
+  // event.target is the element that "triggered" the event
+  event.target.style.backgroundColor = color;
+}
 ```
 
-## The `event` object
+How would you trigger it to be invoked whenever a key was pressed anywhere on the page? What about if you moved your mouse over an element with the id `mouse-area`?
 
-When any event handler is invoked, it is given an `event` object as an argument. The `event` object has about the event, with different properties for different event types.
+**<details><summary>Solution</summary>**
 
 ```js
-// this event handler ignores the event argument
-const eventHandler = () => console.log('an event occurred!');
-
-// this event handler actually uses it!
-const printEvent = (event) => console.log(event);
-
-// we can assign multiple event handlers to an element
-document.querySelector('button').addEventListener('click', eventHandler);
-document.querySelector('button').addEventListener('click', printEvent);
+document.querySelector("#mouse-area").addEventListener('mousemove', changeToRandomColor)
+document.body.addEventListener('keydown', changeToRandomColor)
 ```
 
-Here are some essential `event` properties:
+</details>
 
-- `event.target` — the Element that triggered the event. Available for all events
-- `event.key` — the key pressed. Available for keyboard events.
-- `event.x` / `event.y` — the location of the mouse in the window. Available for mouse events. (alias for `.clientX`/`.clientY`)
-
-> See this in action in `turtle-walker/` website.
-
-## Good to know, not to use: inline handlers
+## Good to Be Aware of, Not to Use: Inline Handlers
 
 You can also define event handlers inline directly in HTML:
 
@@ -107,15 +138,13 @@ You can also define event handlers inline directly in HTML:
 <button onclick="console.log('hello world');">I have an inline handler!</button>
 ```
 
-This is good to be aware of for when we get to React but you should NOT use this.
+This is good to be aware of for when we get to React but you should NOT use this since we want to keep our JavaScript logic in our `.js` files and out of `.html` files.
 
 ## Event Propagation
 
-The key concept to understand is that **child events can affect parent elements**. 
+> **Propagation**: the act or process of spreading something
 
-"Event Propagation" is just a fancy way of saying “clicking on a child element affects the parents”
-
-When an event is triggered by a child, it is detected by the parent.
+Imagine we had the following structure:
 
 ```html
 <div id="outer">
@@ -125,64 +154,97 @@ When an event is triggered by a child, it is detected by the parent.
 </div>
 ```
 
-Two values to be aware of:
-- `event.target` (the Element that fired the event)
-- `event.currentTarget` (the Element handling the event)
+When an event is triggered by an element (e.g. a button is clicked), that element and all of its parent elements can "hear" that event and can listen to/handle those events. We call this **event propagation** or **bubbling**.
 
-To prevent events from bubbling up, use `event.stopPropagation()`
+This means that an event listener added to `div#middle` and `div#outer` will be triggered when we click on the `button#inner` element.
+
+```js
+const testPropagation = (event) => {
+  console.log(`Event triggered by: #${event.target.id} (event.target)`);
+  console.log(`Handled by: #${event.currentTarget.id} (event.currentTarget)`);
+}
+
+document.querySelector('#inner').addEventListener('click', testPropagation);
+document.querySelector('#middle').addEventListener('click', testPropagation);
+document.querySelector('#outer').addEventListener('click', testPropagation);
+```
+
+When an event is handled by an element that is different from the element that triggered the event, the values of `event.target` and `event.currentTarget` will be different:
+- `event.target` is the Element that fired the event
+- `event.currentTarget` is the Element handling the event
+
+To prevent events from bubbling up, use the `event.stopPropagation()` method available on all events:
 
 ```js
 const testPropagation = (event) => {
   console.log(`Event detected on #${event.target.id}`);
   console.log(`Event handled by: #${event.currentTarget.id}`);
-  // event.stopPropagation()
+  event.stopPropagation()
 }
-
-document.querySelector('#outer').addEventListener('click', testPropagation);
-document.querySelector('#middle').addEventListener('click', testPropagation);
-document.querySelector('#inner').addEventListener('click', testPropagation);
 ```
-
-In this example, because `#inner` is a child of `#middle` and `#outer`, clicking on `#inner` will trigger its own event handler as well as the event handlers of `#middle` and `#outer`.
 
 **Q: What would happen if we removed the event handlers for `#inner` and `#middle`?**
 
-## Event Delegation
+### Event Delegation
 
-Event delegation is the idea that you can have **a single event listener** on a **parent element** that can handle events for all of its **children**. 
+> **Delegation**: the act of empowering to act for another.
 
-This is useful for child elements that are added/removed dynamically. Like when a user adds a new item to a list.
+Event propagation/bubbling allows a really powerful design pattern called **event delegation**. Suppose you had the following list:
 
 ```html
-<ul id="counting-list">
-  <li>1</li>
-  <li>2</li>
-  <li>3</li>
+<ul id="picture-list">
+  <li><img src="cat1.webp" alt="a funny cat"></li>
+  <li><img src="cat2.jpg" alt="a funny cat"></li>
+  <li><img src="cat3.jpg" alt="a funny cat"></li>
 </ul>
 ```
 
-This example has the `ul` listening for clicks on the child `li` Elements. If a click is detected, the number of the `li` that was clicked on is saved and a new `li` is appended to the list with that number plus 1. 
+Each list item has a picture and a solid black border. As long as we have our mouse hovering over on an image, we want the border of that image (and only that image) to turn red! We can do that with an event listener like this:
 
 ```js
-const ul = document.querySelector('#counting-list');
-ul.addEventListener('click', (event) => {
-  if (event.target.matches('li')) {
-    const numberOfLiClicked = Number(event.target.innerText);
-    const li = document.createElement('li');
-    li.innerText = numberOfLiClicked + 1
-    event.currentTarget.append(li);
-  }
-});
+const toggleBorder = (event) => {
+  console.log(event.type + ' event detected on: ', event.target);
+  console.log('event handled by: ', event.currentTarget);
+
+  // toggle the highlight class (which will make the border red) on the closest li to the image
+  event.target.closest('li').classList.toggle('highlight');
+
+  event.stopPropagation()
+}
 ```
 
-Because the new `li` Elements are also children of the `ul`, the new `li` Elements are also clickable! We don't need to add additional event listeners for each new `li` because the `ul` will handle it.
+Now, to get that to work for all of our images, one solution would be to add `mouseover` and `mouseout` event handlers to every single image...
 
-Here's the pattern: 
-1. Grab a parent element
-2. Have it listen for events, it will detect events triggered by its children because of **propagation**
-3. Identify the target to decide what you want to do using `event.target.matches()`
+```js
+document.querySelector("#picture-list img:nth-child(1)").addEventListener('mouseover', toggleBorder);
+document.querySelector("#picture-list img:nth-child(1)").addEventListener('mouseout', toggleBorder);
+document.querySelector("#picture-list img:nth-child(2)").addEventListener('mouseover', toggleBorder);
+document.querySelector("#picture-list img:nth-child(2)").addEventListener('mouseout', toggleBorder);
+document.querySelector("#picture-list img:nth-child(3)").addEventListener('mouseover', toggleBorder);
+document.querySelector("#picture-list img:nth-child(3)").addEventListener('mouseout', toggleBorder);
+```
 
-`event.target.classList.contains()` is also useful for identifying the target.
+...but that looks kind of awful. If we had 100 images, then we'd need 200 event listeners... 🤮 
+
+Instead, we can just add the event listener to the container, the `ul#picture-list`. This requires one important tweak: we have to make sure that only events triggered by the `img` elements themselves are handled with a guard clause
+
+```js
+const toggleBorder = (event) => {
+  console.log(event.type + ' event detected on: ', event.target);
+  console.log('event handled by: ', event.currentTarget);
+
+  // Element.matches returns true if the given element would be selected by the given CSS selector
+  // If the target of the event wasn't an image, we don't care about it
+  if (!event.target.matches('img')) return;
+
+  event.target.closest('li').classList.toggle('highlight');
+}
+const ul = document.querySelector('#picture-list');
+ul.addEventListener('mouseover', toggleBorder);
+ul.addEventListener('mouseout', toggleBorder);
+```
+
+Pretty neat, right?!
 
 ## Removing Event Listeners
 One of the reasons why passing a named callback function to your listeners is better is because you can then remove them if you need to. 
@@ -194,7 +256,6 @@ const handleCountClick = (e) => {
 };
 const counterButton = document.querySelector("#counter");
 counterButton.addEventListener('click', handleCountClick);
-
 
 const removeListenerButton = document.querySelector("#remove-listener");
 removeListenerButton.addEventListener('click', (e) => {
