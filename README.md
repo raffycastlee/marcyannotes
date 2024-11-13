@@ -27,6 +27,7 @@ This is a fork of the handbook with added daily Code Challenge notes and (my, Ra
 
 latest updates:
 
+- [countVowelConsonants](codechallenge-curriculum/unit-3/20241112.md)
 - [compareEvenAndOddSum](codechallenge-curriculum/unit-3/20241106.md)
 - [firstNotRepeating](codechallenge-curriculum/unit-3/20241105.md)
 - [digitSumDifference](codechallenge-curriculum/unit-3/20241104.md)
@@ -36,4 +37,3 @@ latest updates:
 - [Unit 2 Diagnostic](codechallenge-curriculum/unit-2/20241024.md)
 - [CC-12: Objects with Carmen Salas](codechallenge-curriculum/unit-2/20241023.md)
 - [CC-11: Objects with Carmen Salas](codechallenge-curriculum/unit-2/20241022.md)
-- [CC-10: Reading Objects with Carmen Salas](codechallenge-curriculum/unit-2/20241021.md)

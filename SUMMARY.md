@@ -124,6 +124,7 @@
       - [digitSumDifference](codechallenge-curriculum/unit-3/20241104.md)
       - [firstNotRepeating](codechallenge-curriculum/unit-3/20241105.md)
       - [compareEvenAndOddSum](codechallenge-curriculum/unit-3/20241106.md)
+      - [countVowelConsonants](codechallenge-curriculum/unit-3/20241112.md)
    - [Unit 4](codechallenge-curriculum/unit-4/README.md)
    - [Unit 5](codechallenge-curriculum/unit-5/README.md)
    - [Unit 6](codechallenge-curriculum/unit-6/README.md)
