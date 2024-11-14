@@ -126,6 +126,7 @@
       - [compareEvenAndOddSum](codechallenge-curriculum/unit-3/20241106.md)
       - [countVowelConsonants](codechallenge-curriculum/unit-3/20241112.md)
       - [finalHP](codechallenge-curriculum/unit-3/20241113.md)
+      - [canMakeTriangle](codechallenge-curriculum/unit-3/20241114.md)
    - [Unit 4](codechallenge-curriculum/unit-4/README.md)
    - [Unit 5](codechallenge-curriculum/unit-5/README.md)
    - [Unit 6](codechallenge-curriculum/unit-6/README.md)

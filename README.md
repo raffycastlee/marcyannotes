@@ -27,6 +27,7 @@ This is a fork of the handbook with added daily Code Challenge notes and (my, Ra
 
 latest updates:
 
+- [canMakeTriangle](codechallenge-curriculum/unit-3/20241114.md)
 - [finalHP](codechallenge-curriculum/unit-3/20241113.md)
 - [countVowelConsonants](codechallenge-curriculum/unit-3/20241112.md)
 - [compareEvenAndOddSum](codechallenge-curriculum/unit-3/20241106.md)
@@ -36,4 +37,3 @@ latest updates:
 - [validTime](codechallenge-curriculum/unit-3/20241029.md)
 - [Intro to PEDAC (and Algorithms)](codechallenge-curriculum/unit-3/20241028.md)
 - [Unit 2 Diagnostic](codechallenge-curriculum/unit-2/20241024.md)
-- [CC-12: Objects with Carmen Salas](codechallenge-curriculum/unit-2/20241023.md)
